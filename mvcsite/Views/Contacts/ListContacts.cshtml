@@ -1,0 +1,50 @@
+﻿@model IEnumerable<mvcsite.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    <h2>Contacts</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "modal-link btn btn-primary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.EMail)
+            </th>
+            <th>
+                Organization
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.FirstName + " " + item.LastName, "Details", new { id = item.Id })
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMail)
+                </td>
+                <td>
+                    @Html.ActionLink(item.Organization.Name, "Details", "Organizations", new { id = item.Organization.Id }, null)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+            </tr>
+        }
+
+    </table>

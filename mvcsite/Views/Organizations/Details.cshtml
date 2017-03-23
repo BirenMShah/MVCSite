@@ -1,0 +1,56 @@
+﻿@model mvcsite.Models.Organization
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Organization</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <ul>
+        @foreach (var item in Model.Contacts)
+        {
+            <li>@Html.ActionLink(@item.FirstName+ " " + @item.LastName,"Details","Contacts", new { id=item.Id},null)</li>
+        }
+    </ul>
+   
+</div>
+

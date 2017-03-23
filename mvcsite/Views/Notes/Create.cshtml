@@ -1,0 +1,64 @@
+﻿@model mvcsite.ViewModels.NoteViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="modal-body">
+    <h2>Add Note for ????</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>NoteViewModel</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            @Html.HiddenFor(model => model.NoteType)
+            @Html.HiddenFor(model => model.SrcId)
+
+
+
+
+           
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="submit" id="popup-submit-btn"
+                            class="btn btn-danger">
+                        Save
+                    </button>
+                  
+                </div>
+            </div>
+        </div>
+    }
+
+    </div>
+
+
+<script type="text/javascript">
+ 
+</script>

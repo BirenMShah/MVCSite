@@ -1,0 +1,77 @@
+﻿@model mvcsite.Models.Contact
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organization.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organization.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt>
+            
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                
+            
+        </dt>
+        <dd>
+@Html.ActionLink("Back to List", "Index")
+        </dd>
+    </dl>
+</div>
+<div>
+    <h4>Notes</h4>
+    <hr/>
+    <ul>
+        @foreach (var note in Model.Notes)
+        {
+            <li>@note.Subject: @note.Description</li>
+        }
+    </ul>
+    @Html.ActionLink("Add Note","Create","Notes", new { @NoteType = "Contact",@SrcId=Model.Id }, //routeValues
+    new { @class = "modal-link btn btn-success" })
+</div>
+
+
+ 
+
+
